@@ -8,13 +8,13 @@ $(function(){
     var idx;
     var state;
     var option;
-    for(idx = 0; i < usStates.length; ++idx){
+    for(idx = 0; idx < usStates.length; ++idx){
     	state = usStates[idx];
     	option = $(document.createElement('option'));
         option.attr('value', state.abbreviation);
         option.html(state.name);
         stateSelect.append(option);
-    }
+    }//Adds each state to the drop down menu
 
     //Make sure that address and zip code are both input
     $('.signup-form').submit(function(){
@@ -29,12 +29,16 @@ $(function(){
     			return false;
     		}
     	}
-    }); //submit signup
+    }); //Submit signup
 
-    //Redirects to home page
+    //Prompts modal dialog
     $('.cancel-signup').click(function(){
-    	window.location = 'http://www.google.com';
+    	$('.cancel-signup-modal').modal();
 	}); //cancel-signup click
+
+    $('.btn-abandon').click(function(){
+        window.location = 'http://www.google.com';
+    }); //Redirects to Google
 
 }); //on document ready 
 
